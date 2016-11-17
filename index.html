@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" manifest="manifest.appcache">
+<html lang="en">
   <head>
     <title>Clumsy Bird</title>
     <link rel="apple-touch-icon-precomposed" href="data/img/touch-icon-iphone.png"/>
@@ -9,6 +9,7 @@
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Clumsy Bird">
     <meta charset="UTF-8" />
     <meta name="description" content="Clumsy Bird - A Flappy Bird clone using MelonJS"/>
     <meta name="keywords" content="flappybird, flappy, bird, game, html5, melonjs,clone"/>
@@ -19,8 +20,20 @@
     <meta property="og:url" content="http://ellisonleao.github.io/clumsy-bird/"/>
     <meta property="og:site_name" content="Clumsy Bird - MelonJS"/>
 
+    <!-- Twitter Card -->
+    <meta name="twitter:hashtag" content="clumsybird" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ellisonleao" />
+    <meta name="twitter:creator" content="@ellisonleao" />
+    <meta name="twitter:title" content="Clumsy Bird" />
+    <meta name="twitter:description" content="A Flappy Bird melonJS clone " />
+
+
     <!-- Humans -->
     <link rel="author" href="humans.txt" />
+
+    <link rel="stylesheet" type="text/css" href="addtohomescreen.css">
+    <script src="js/addtohomescreen.min.js"></script>
   </head>
 
   <body>
@@ -41,29 +54,22 @@
          js.src = "//connect.facebook.net/pt_BR/all.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+       addToHomescreen();
     </script>
     <!-- Canvas placeholder -->
     <div id="screen"></div>
     <!-- Sharing section -->
     <div id="share">
-      <iframe 
-        src="http://ghbtns.com/github-btn.html?user=ellisonleao&repo=clumsy-bird&type=watch&count=true"
-        allowtransparency="true" 
-        frameborder="0" 
-        scrolling="0" 
-        width="77" 
-        height="20">
-      </iframe>
-      <div 
-        class="fb-share-button" 
-        data-href="http://ellisonleao.github.io/clumsy-bird/" 
-        data-type="button_count">
-      </div>
-      <a 
-        href="https://twitter.com/ellisonleao" 
-        class="twitter-follow-button" 
-        data-show-count="false">Follow @ellisonleao
-      </a>
+        <div
+            class="fb-share-button"
+            data-href="http://ellisonleao.github.io/clumsy-bird/"
+            data-type="button_count">
+        </div>
+        <a
+            href="https://twitter.com/ellisonleao"
+            class="twitter-follow-button"
+            data-show-count="false">Follow @ellisonleao
+        </a>
       <div class="google">
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -100,13 +106,14 @@
     </div>
 
     <!-- melonJS Library -->
-    <script type="text/javascript" src="lib/melonJS-1.0.0-min.js" ></script>
+    <script type="text/javascript" src="js/melonJS-2.1.1-min.js"></script>
+    <script type="text/javascript" src="js/debugPanel.js" ></script>
     <script type="text/javascript" src="build/clumsy-min.js" ></script>
     <!-- Bootstrap & Mobile optimization tricks -->
     <script type="text/javascript">
       window.onReady(function onReady() {
-        game.onload();
 
+        game.onload();
         // Mobile browser hacks
         if (me.device.isMobile && !navigator.isCocoonJS) {
           // Prevent the webview from moving on a swipe
