@@ -1,6 +1,8 @@
 Clumsy Bird
 ===========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hypery2k/clumsy-bird.svg)](https://greenkeeper.io/)
+
 A MelonJS made "Flappy Bird" clone.
 
 ![](http://i.imgur.com/Slbvt65.png)
